@@ -2,7 +2,7 @@
 An employee placed on a P.I.P. has displayed behavior to suggest he may exfiltrate data and quit the company.
 
 ## 09:00 AM – A Sudden Shift in Focus:<BR>
-It’s a standard midweek morning at a technology firm specializing in proprietary R&D. The IT security team is wrapping up routine endpoint health checks when a message from HR changes the day’s trajectory. An employee, John Doe, working in a sensitive department, has just been placed on a Performance Improvement Plan (PIP). Minutes later, John had an emotional outburst in the office—slamming his desk and leaving abruptly.
+It’s a standard midweek morning at a technology firm specializing in proprietary R&D. The IT security team is wrapping up routine endpoint health checks when a message from HR changes the day’s trajectory. An employee, John Doe, working in a sensitive department, has just been placed on a _Performance Improvement Plan_ (PIP). Minutes later, John had an emotional outburst in the office—slamming his desk and leaving abruptly.
 
 Management, concerned by John’s access level and erratic behavior, raises a red flag: Could he be planning to steal proprietary information before quitting?
 
