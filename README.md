@@ -1,4 +1,4 @@
-# Suspected-Data-Exfiltration-From-PIP-Employee
+# Suspected-Data-Exfiltration-From-Employee-Under-P.I.P.
 An employee placed on a P.I.P. has displayed behavior to suggest he may exfiltrate data and quit the company.
 
 ## 09:00 AM – A Sudden Shift in Focus:<BR>
@@ -111,7 +111,7 @@ The results yielded nothing, which means for now John Doe has not acted maliciou
 John Doe is cleared of any suspicion for exfiltrating data, the report is finalized and sent to HR for review.<BR>
 
 <p align="center">
-  <strong>This wraps up Threat Hunting Scenario: Suspected Data Exfiltration From PIP Employee</strong>
+  <strong>This wraps up Threat Hunting Scenario: Suspected Data Exfiltration From employee John doe under a P.I.P.</strong>
 </p>
 
 <p align="center">
