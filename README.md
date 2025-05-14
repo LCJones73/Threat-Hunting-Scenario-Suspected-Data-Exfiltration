@@ -114,7 +114,7 @@ A final scan using the following KQL code to see if John Doe has exfiltrated fil
 The results yielded nothing, which means for now John Doe has not acted maliciously to exfiltrate data.
 
 ## 12:00 PM – The Incident Summary Report finalized: 
-John Doe is cleared of any suspicion for exfiltrating data, the report is finalized and sent to HR for review.<BR>
+John Doe is cleared of any suspicion for exfiltrating data, the report is finalized and sent to HR for review.<BR><BR>
 
 <p align="center">
   <strong>This wraps up Threat Hunting Scenario: Suspected Data Exfiltration From employee John doe under a P.I.P.</strong>
