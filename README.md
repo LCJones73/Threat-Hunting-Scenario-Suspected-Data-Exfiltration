@@ -10,26 +10,6 @@ Management, concerned by John’s access level and erratic behavior, raises a re
 The endpoint response team pivots immediately. Using Microsoft Defender for Endpoint (MDE), they initiate a targeted investigation into John's corporate device:
 First step: pull the device timeline and process activity for the last 72 hours. The team is on alert for signs of reconnaissance, unusual file access, or potential data staging.
 
-## 10:05 AM – Irregular Patterns Detected<BR>
-Reviewing logs, the team notes a spike in access to sensitive files within a directory labeled "Project_Hermes", a confidential R&D initiative.
-Time of access: 10:27 PM the previous evening—well outside normal working hours.
-Over a dozen .docx, .pdf, and .pptx files were opened in quick succession.
-
-## 10:22 AM – External Device Activity<BR>
-Device control logs confirm the connection of a USB mass storage device during the same session. Files accessed were then copied to a temporary folder, a classic staging behavior often preceding exfiltration.
-
-## 10:40 AM – Potential Cloud Upload Detected<BR>
-Network telemetry shows a burst of outbound traffic to Dropbox.com at 10:33 PM, consistent with file uploads. No business justification exists for John to use personal cloud storage for his role.
-
-## 11:00 AM – Containment Protocol Activated<BR>
-The team triggers automated device isolation via MDE. John’s workstation is now locked off from the network. Simultaneously, an alert is escalated to the Insider Risk Response Team and legal counsel. Forensic disk imaging is authorized for deeper offline analysis.
-
-## 11:20 AM – Corroborating the Threat<BR>
-Additional review of endpoint behavior reveals the presence of 7-Zip processes and batch script executions logged in the Temp directory—indicative of file compression scripts, possibly for bundling sensitive data before exfiltration.
-
-## 12:00 PM – The Interview Awaits<BR>
-With enough indicators of intent and capability, HR and security prepare to confront John. Meanwhile, the SOC finalizes a preliminary incident summary and begins long-term log retention procedures to support a potential legal investigation.
-
 Now that the stage is set, let's work through this scenario and see what we as the SOC Analyst discovers.
 
 ### - Preparation
@@ -112,7 +92,7 @@ Which yielded the following files:
 
 ![image](https://github.com/user-attachments/assets/0afeb915-1e60-4445-ade2-f7ada16da3b5)
 
-This PowerShell code is simply downloading, which we might say is "infiltration" not "Exfiltration of data.
+This PowerShell code is simply downloading, which we might say is "infiltration" not "Exfiltration" of data.
 
 ## Why It's Not Exfiltration:
  - Invoke-WebRequest with -OutFile downloads data from a URL to the local machine.
@@ -126,3 +106,20 @@ A final scan using the following KQL code to see if John Doe has exfiltrated fil
 ![image](https://github.com/user-attachments/assets/25cb5c80-5f25-4a82-8352-e810bfd10105)
 
 The results yielded nothing, which means for now John Doe has not acted maliciously to exfiltrate data.
+
+## 12:00 PM – The Incident Summary Report finalized: 
+John Doe is cleared of any suspicion for exfiltrating data, the report is finalized and sent to HR for review.<BR>
+
+<p align="center">
+  <strong>This wraps up Threat Hunting Scenario: Suspected Data Exfiltration From PIP Employee</strong>
+</p>
+
+<p align="center">
+____________________________________________________________________________________________________________________________
+</p><BR>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/357dc7ff-c6d7-4d02-9200-97c028e0a2a7" alt="Description" width="400"/>
+</p>
+<p align="center">
+____________________________________________________________________________________________________________________________
+</p>
