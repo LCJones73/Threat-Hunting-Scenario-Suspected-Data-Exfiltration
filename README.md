@@ -15,23 +15,29 @@ Now that the stage is set, let's work through this scenario and see what we as t
 ### - Preparation
 > [!NOTE]
 > <strong>Set up the hunt by defining what you're looking for:</strong><BR><BR>
-The server team has noticed a significant network performance degradation on some of their older devices attached to the network in the 10.0.0.0/16 network. After ruling out external DDoS attacks, the security team suspects something might be going on internally.<BR><BR>
-Activity: All traffic originating from within the local network is by default allowed by all hosts. There is also unrestricted use of PowerShell and other applications in the environment. It’s possible someone is either downloading large files or doing some kind of port scanning against hosts in the local network.
+An employee named John Doe, working in a sensitive department, recently got put on a performance improvement plan (PIP). After John threw a fit, management has raised concerns that John may be planning to steal proprietary information and then quit the company. Your task is to investigate John's activities on his corporate device (vm-mde-cj) using Microsoft Defender for Endpoint (MDE) and ensure nothing suspicious is taking place.<BR><BR>
+Activity: Develop a hypothesis based on threat intelligence and security gaps (e.g., “Could there be lateral movement in the network?”).
+John is an administrator on his device and is not limited on which applications he uses. He may try to archive/compress sensitive information and send it to a private drive or something.
+
 ### - Data Collection
 > [!TIP]
 > <strong>Gather relevant data from logs, network traffic, and endpoints.</strong><BR><BR>
-Consider inspecting the logs for excessive successful/failed connections from any devices.  If discovered, pivot and inspect those devices for any suspicious file or process events.<BR><BR>
+Consider inspecting process activity as well as the file system for anything that matches the compression or exfiltration of data.<BR><BR>
 Activity: Ensure data is available from all key sources for analysis.
 Ensure the relevant tables contain recent logs:<br><br>
-DeviceNetworkEvents<BR>
 DeviceFileEvents<BR>
-DeviceProcessEvents
+DeviceProcessEvents<BR>
+> DeviceNetworkEvents
 
 ### - Data Analysis
 > [!TIP]
 > <strong>Analyze data to test your hypothesis.</strong><BR><BR>
 Activity: Look for anomalies, patterns, or indicators of compromise (IOCs) using various tools and techniques.
-Anything going on that you can notice in terms of excessive network connections to/from any hosts? Take note of the the query/logs/time
+Is there any evidence of anything that resembles company files being archived?
+If so, can you identify exactly what is happening?
+If you find something, take note of the time stamp and search the other tables for +/-1 minutes around the same time to see if you can notice anything
+Take note of your findings with the corresponding queries below
+
 ### - Investigation
 > [!WARNING]
 > <strong>Investigate any suspicious findings.</strong><BR><BR>
