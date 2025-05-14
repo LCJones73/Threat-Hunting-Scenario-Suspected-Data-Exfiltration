@@ -33,10 +33,10 @@ DeviceProcessEvents<BR>
 > [!TIP]
 > <strong>Analyze data to test your hypothesis.</strong><BR><BR>
 Activity: Look for anomalies, patterns, or indicators of compromise (IOCs) using various tools and techniques.
-Is there any evidence of anything that resembles company files being archived?
-If so, can you identify exactly what is happening?
-If you find something, take note of the time stamp and search the other tables for +/-1 minutes around the same time to see if you can notice anything
-Take note of your findings with the corresponding queries below
+  - Is there any evidence of anything that resembles company files being archived?
+  - If so, can you identify exactly what is happening?
+  - If you find something, take note of the time stamp and search the other tables for +/-1 minutes around the same time to see if you can notice anything
+  - Take note of your findings with the corresponding queries below
 
 ### - Investigation
 > [!WARNING]
