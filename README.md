@@ -76,3 +76,53 @@ Anything we could have done to prevent the thing we hunted for? Any way we could
 ## Notes / Findings:
 
 ### Timeline Summary and Findings:
+I started with checking the DeviceFileEvents to see if John Doe was running anything that might indicate data exfiltration:
+
+![image](https://github.com/user-attachments/assets/5143fa01-ef91-4412-b4b5-ead4ed2824f6)
+
+I noticed that he had run a PowerShell script meant to test to see if PowerShell scripts can be run on his maching successfully
+
+![image](https://github.com/user-attachments/assets/ba1d7b7a-af63-4f77-975e-1130f06230f3)
+
+I also noticed in the same search that John Doe also ran had an Archive.zip file for: 2025-05-14T00:46:24.5921685Z
+
+![image](https://github.com/user-attachments/assets/c17fd720-fbb9-45e5-ab68-2b9b80761823)
+
+I know that when I see an "Archive.zip" (via DeviceProcessEvents, FileCreationEvents, or similar tables) it typically indicates that a ZIP archive was either:
+
+🔹 Created, Accessed, Downloaded, or Dropped
+
+In this case John Doe was using it in relation to Microsoft 3D Viewer (look below):
+
+![image](https://github.com/user-attachments/assets/0c7f4684-088e-48da-881d-a4cf963571ed)
+
+Since that is not so suspicious, I remembered there was that one .ps1 file indicating testing to ensure the PowerShell scripts work on his device. So, I ran the following KQL code to dig deeper into what John Doe was potentially doing:
+
+![image](https://github.com/user-attachments/assets/fa7c9930-61e4-4f7e-a260-f81ea6ceeceb)
+
+I discovered the following:
+
+![image](https://github.com/user-attachments/assets/2c898146-04ff-4312-b442-ccd729eeeb7c)
+
+Digging a little deeper I wanted to see if any files were staged to potentially be exfiltrated:
+
+![image](https://github.com/user-attachments/assets/4198241a-75b8-4f62-8dea-7cad25d5dab6)
+
+Which yielded the following files:
+
+![image](https://github.com/user-attachments/assets/0afeb915-1e60-4445-ade2-f7ada16da3b5)
+
+This PowerShell code is simply downloading, which we might say is "infiltration" not "Exfiltration of data.
+
+## Why It's Not Exfiltration:
+ - Invoke-WebRequest with -OutFile downloads data from a URL to the local machine.
+ - No files are being read from the system and sent elsewhere — that would involve:
+   - Invoke-RestMethod or Invoke-WebRequest with a POST
+   - UploadFile(), System.Net.WebClient
+   - Use of cloud storage URLs, FTP, Discord, Mega.nz, etc.
+
+A final scan using the following KQL code to see if John Doe has exfiltrated files:
+
+![image](https://github.com/user-attachments/assets/25cb5c80-5f25-4a82-8352-e810bfd10105)
+
+The results yielded nothing, which means for now John Doe has not acted maliciously to exfiltrate data.
